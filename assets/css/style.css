@@ -14,3 +14,9 @@
   background: white;
   width: 400px;
 }
+
+#choice0, #choice1, #choice2, #choice3 {
+  background-color: blue;
+  color: white;
+  width: 500px;
+}

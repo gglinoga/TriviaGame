@@ -50,33 +50,34 @@ $(document).ready(function () {
         ],
 
         startup: function () {
-            $("#rightH").remove();
+            console.log("startup")
             $("#right").remove();
-            $("#wrongH").remove();
             $("#wrong").remove();
             $("#startbutton").remove();
             this.numRight = 0;
             this.numWrong = 0;
             this.numUnA = 0;
             this.i = 0;
-            if (got.buttonsExist === 0) {
+            if (this.buttonsExist === 0) {
                 var question = $("<div id='question' class='card-body'></div>");
                 $("#anchor").append(question);
+                console.log('help');
                 $("#question").html("1st Question");
-                var c0 = $("<br> <div id='choice0' class='btn btn-primary btn-lg'>choice0</div>");
+                var c0 = $("<div id='choice0'>choice0</div>");
                 $("#anchor").append(c0);
-                var c1 = $("<br> <div id='choice1' class='btn btn-primary btn-lg'>choice1</div>");
+                var c1 = $("<div id='choice1'>choice1</div>");
                 $("#anchor").append(c1);
-                var c2 = $("<br> <div id='choice2' class='btn btn-primary btn-lg'>choice2</div>");
+                var c2 = $("<div id='choice2'>choice2</div>");
                 $("#anchor").append(c2);
-                var c3 = $("<br> <div id='choice3' class='btn btn-primary btn-lg'>choice3</div>");
+                var c3 = $("<div id='choice3'>choice3</div>");
                 $("#anchor").append(c3);
                 got.game();
-                buttonsExist = 1;
+                this.buttonsExist = 1;
             }
         },
 
         game: function () {
+            console.log("index " + this.i);
             $("#question").html(this.questions[this.i].q);
             $("#choice0").html(this.questions[this.i].c[0]);
             $("#choice1").html(this.questions[this.i].c[1]);
@@ -84,9 +85,8 @@ $(document).ready(function () {
             $("#choice3").html(this.questions[this.i].c[3]);
 
             var time = 30;
-            var clockRunning = true;
+            var clockRunning = false;
             if (!clockRunning) {
-                console.log("start time!")
                 intervalId = setInterval(count, 1000);
                 clockRunning = true;
             }
@@ -97,33 +97,24 @@ $(document).ready(function () {
                 $("#timer").html(time);
                 if (time <= 0) {
                     console.log("time is up")
-                    stop();
-                    clockreset();
+                    got.stop();
+                    got.clockreset();
                     got.timeover();
-                    // got.timeover()
-                    // } else if (this.currentA == this.questions[this.i].a) {
-                    //     alert("correct!");
                 }
-            }
-
-            function clockreset() {
-                time = 30;
-                $("#timer").html(time);
-            }
-
-            function stop() {
-                clearInterval(intervalId);
-                clockRunning = false;
             }
 
         },
 
-        ///timer in here, 30s
-        // update q, update a, update choices
-        //end for
-        //if timer runs out, incorrect, delay 5s
-        //if choice = a, correct, delay 5s
-        //if choice != a, incorrect, delay 5s
+        clockreset: function () {
+            time = 30;
+            $("#timer").html(time);
+        },
+
+        stop: function () {
+            clearInterval(intervalId);
+            clockRunning = false;
+        },
+
         button: function (z) {
             this.currentA = z;
             if (this.currentA === this.questions[this.i].a) {
@@ -133,41 +124,44 @@ $(document).ready(function () {
                 alert("incorrect")
                 this.numWrong++;
             }
+            got.stop();
+            got.clockreset();
             this.i++;
-            if (this.i<8){
-            got.game();
-            }
-            else {
+            if (this.i < 8) {
+                got.game();
+            } else {
+                console.log("answer gameover")
                 got.gameover();
-                alert("Number right = " + this.numRight + "    Number wrong = " + this.numWrong)
             }
         },
 
         timeover: function () {
-            // alert("time is over");
             this.numUnA++;
-            console.log("unaswered = " + this.numUnA);
-            this.game();
+            this.i++;
+            if (this.i < 8) {
+                this.game();
+            } else {
+                console.log("timeover gameover")
+                got.gameover();
+            }
         },
 
         gameover: function () {
+            console.log("Number right = " + this.numRight + "    Number wrong = " + this.numWrong + "    Number Unaswered = " + this.numUnA)
             $("#question").remove();
             $("#choice0").remove();
             $("#choice1").remove();
             $("#choice2").remove();
             $("#choice3").remove();
-            var rightH = $("<div id='rightH'class='card-header'>Correct:</div>");
-            $("anchor").append(rightH)
             var right = $("<div id='right'class='card-body'></div>");
             $("#anchor").append(right);
-            $("#right").html(this.numRight);
-            var wrongH = $("<div id='wrongH'class='card-header'>Incorrect:</div>");
-            $("anchor").append(wrongH)
+            $("#right").html("Number Correct: " + this.numRight);
             var wrong = $("<div id='wrong' class='card-body'></div>");
             $("#anchor").append(wrong);
-            $("#wrong").html(this.numWrong);
-            
-            this.startup();
+            $("#wrong").html("Number Incorrect: " + this.numWrong);
+            this.buttonsExist=0;
+            this.startup()
+            // setTimeout(this.startup, 5000);    ///index is being read before it resets at the start of the this.startup.
         }
 
     } ///end of got object
