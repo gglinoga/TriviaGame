@@ -55,9 +55,10 @@ $(document).ready(function () {
             $("#wrongH").remove();
             $("#wrong").remove();
             $("#startbutton").remove();
-            numRight = 0;
-            numWrong = 0;
-            numUnA = 0;
+            this.numRight = 0;
+            this.numWrong = 0;
+            this.numUnA = 0;
+            this.i = 0;
             if (got.buttonsExist === 0) {
                 var question = $("<div id='question' class='card-body'></div>");
                 $("#anchor").append(question);
@@ -70,7 +71,6 @@ $(document).ready(function () {
                 $("#anchor").append(c2);
                 var c3 = $("<br> <div id='choice3' class='btn btn-primary btn-lg'>choice3</div>");
                 $("#anchor").append(c3);
-                console.log("end startup")
                 got.game();
                 buttonsExist = 1;
             }
@@ -85,7 +85,6 @@ $(document).ready(function () {
 
             var time = 30;
             var clockRunning = true;
-            console.log("end game")
             if (!clockRunning) {
                 console.log("start time!")
                 intervalId = setInterval(count, 1000);
@@ -117,9 +116,7 @@ $(document).ready(function () {
                 clockRunning = false;
             }
 
-
         },
-
 
         ///timer in here, 30s
         // update q, update a, update choices
@@ -129,7 +126,6 @@ $(document).ready(function () {
         //if choice != a, incorrect, delay 5s
         button: function (z) {
             this.currentA = z;
-            console.log(this.currentA);
             if (this.currentA === this.questions[this.i].a) {
                 alert("correct")
                 this.numRight++;
@@ -142,18 +138,9 @@ $(document).ready(function () {
             got.game();
             }
             else {
+                got.gameover();
                 alert("Number right = " + this.numRight + "    Number wrong = " + this.numWrong)
             }
-        },
-
-
-
-        correct: function () {
-
-        },
-
-        incorrect: function () {
-
         },
 
         timeover: function () {
@@ -179,7 +166,7 @@ $(document).ready(function () {
             var wrong = $("<div id='wrong' class='card-body'></div>");
             $("#anchor").append(wrong);
             $("#wrong").html(this.numWrong);
-
+            
             this.startup();
         }
 
@@ -187,7 +174,6 @@ $(document).ready(function () {
     $("#startbutton").on("click", function () {
         got.startup();
     })
-
     $("body").on("click", "div#choice0", function () {
         got.button(0);
     })
