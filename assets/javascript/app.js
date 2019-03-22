@@ -180,7 +180,7 @@ $(document).ready(function () {
 	$("body").on("click", "div#choice1", function () {
 		if (got.allowClick === true) {
 			got.allowClick = false
-			got.button(0);
+			got.button(1);
 			setTimeout(got.clicker, 5000);
 			console.log(got.allowClick)
 		}
@@ -188,7 +188,7 @@ $(document).ready(function () {
 	$("body").on("click", "div#choice2", function () {
 		if (got.allowClick === true) {
 			got.allowClick = false
-			got.button(0);
+			got.button(2);
 			setTimeout(got.clicker, 5000);
 			console.log(got.allowClick)
 		}
@@ -196,7 +196,7 @@ $(document).ready(function () {
 	$("body").on("click", "div#choice3", function () {
 		if (got.allowClick === true) {
 			got.allowClick = false
-			got.button(0);
+			got.button(3);
 			setTimeout(got.clicker, 5000);
 			console.log(got.allowClick)
 		}
