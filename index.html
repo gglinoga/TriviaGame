@@ -1,128 +1,33 @@
-<!DOCTYPE <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="assets/css/style.css"
-    />
-    <script src="https://code.jquery.com/jquery.js"></script>
-  </head>
-
-  <body>
-    <div class="container">
-      <div class="row">
-            <div class="col-md-12">
-          <div class="jumbotron">
-            <h1>Game of Thrones Trivia Game</h1>
-          </div>
-          <button type="button" id="startbutton" class="btn btn-primary btn-lg">
-            Start
-          </button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div id="timer"></div>
-        </div>
-      </div>
-      <div class="row">
-        <div id="anchor" class="col-md-12"></div>
-      </div>
-    </div>
-    <!-- <div class="container">
-            <button type="button" id="startbutton" class="btn btn-primary btn-lg">Start</button>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="jumbotron">
-                    <h1>Game of Thrones Trivia Game</h1>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card card-default">
-                    <div class="card-heading">
-                        <h2>Timer</h2>
-                    </div>
-                    <div class="card-body">
-                        <h3>00:00</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card-default">
-                    <div class="card-heading">
-                        <h2>Question</h2>
-                    </div>
-                    <div class="card-body">
-                        <h2>????</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card-default">
-                    <div class="card-heading">
-                    </div>
-                    <div class="card-body">
-                        <h2>Answer1</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card-default">
-                    <div class="card-heading">
-                    </div>
-                    <div class="card-body">
-                        <h2>Answer2</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card-default">
-                    <div class="card-heading">
-                    </div>
-                    <div class="card-body">
-                        <h2>Answer3</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card-default">
-                    <div class="card-heading">
-                    </div>
-                    <div class="card-body">
-                        <h2>Answer4</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- //question list //display question
-                        //timer for each question //time's up, display answer //wrong answer, display answer //answer
-                        or wrong answer stops the timer //wait some time, move on to next question, 5s? //final screen
-                        tallies #correct, #incorrect, #unanswered //first screen //start button //question screen
-                        //question //timer (at top?) //choice1 //choice2 //choice3 //choice4 -->
-
-    <script src="assets/javascript/app.js"></script>
-  </body>
+<head>
+	<meta charset="utf-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<title>Page Title</title>
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/css/style.css" media="screen" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery.js">
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1 class="display-1">Game of Thrones Trivia Game</h1><button class="btn btn-primary btn-lg" id="startbutton" type="button">Start</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div id="timer"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12" id="anchor"></div>
+		</div>
+	</div>
+	<script src="assets/javascript/app.js">
+	</script>
+</body>
 </html>

@@ -1,24 +1,41 @@
+body {
+	font-family: Julius Sans One;
+	background-image: url(../images/bg2.jpg!d);
+	font-size: xx-large;
+}
+.display-1 {
+	font-weight: bolder;
+	color: maroon;
+	background: rgba(211, 211, 211, .7)
+}
 .container {
-    text-align: center;
+	text-align: center;
 }
-
 #timer {
-  font-family: monospace;
-  font-size: 120px;
-  color: green;
-  margin: 0px 350px;
-
-  /* Typography */
-  text-align: center;
-
-  /* Visual */
-  background: white;
-  width: 400px;
+	font-family: monospace;
+	font-size: 120px;
+	color: gold;
+	margin: 0px 350px;
+	text-align: center;
+	background: white;
+	width: 400px;
 }
-
-#choice0, #choice1, #choice2, #choice3 {
-  background-color: blue;
-  color: white;
-  width: 500px;
-
+.jumbotron {
+	color: white;
+	font-weight: bold;
+}
+#question {
+	background-color: black;
+	color: white;
+}
+#right, #wrong, #noA {
+	font-weight: bolder;
+	color: maroon;
+	background-color: white;
+}
+#choice0, #choice1, #choice2, #choice3, #restart {
+	background-color: maroon;
+	color: white;
+	width: 500px;
+	size: large;
 }
