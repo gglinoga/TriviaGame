@@ -8,23 +8,23 @@ $(document).ready(function () {
 		buttonsExist: 0,
 		i: 0,
 		questions: [{
-			q: "Hodor is..?",
+			q: "Hodor is...",
 			c: ["alive", "dead", "still holding the door", "at the Wall"],
 			a: 1
 		}, {
-			q: "The seat of the Lannister's power is in..?",
+			q: "The seat of the Lannister's power is in...",
 			c: ["Highgarden", "Summerfell", "Casterly Rock", "Winterfell"],
 			a: 2
 		}, {
-			q: "Winter is..?",
+			q: "Winter is...",
 			c: ["coming", "going", "cold", "ice"],
 			a: 0
 		}, {
-			q: "Which dragon did the Night King turn?",
+			q: "Which dragon did the Night King turn to undead?",
 			c: ["Drogon", "Raeghal", "Viserion", "Puff"],
 			a: 2
 		}, {
-			q: "Valar Morghulis means..?",
+			q: "Valar Morghulis means...?",
 			c: ["praise the old gods", "don't catch your eggs before they hatch", "always pay your debts", "all men must die"],
 			a: 3
 		}, {
