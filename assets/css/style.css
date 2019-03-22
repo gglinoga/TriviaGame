@@ -6,6 +6,7 @@
   font-family: monospace;
   font-size: 120px;
   color: green;
+  margin: 0px 350px;
 
   /* Typography */
   text-align: center;
@@ -19,4 +20,5 @@
   background-color: blue;
   color: white;
   width: 500px;
+
 }

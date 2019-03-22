@@ -51,33 +51,35 @@ $(document).ready(function () {
 
         startup: function () {
             console.log("startup")
+            console.log(this.buttonsExist)
             $("#right").remove();
             $("#wrong").remove();
             $("#startbutton").remove();
             this.numRight = 0;
             this.numWrong = 0;
             this.numUnA = 0;
-            this.i = 0;
-            if (this.buttonsExist === 0) {
+            got.i = 0;
+            console.log(this.i)
+            // if (this.buttonsExist === 0) {
                 var question = $("<div id='question' class='card-body'></div>");
                 $("#anchor").append(question);
                 console.log('help');
                 $("#question").html("1st Question");
-                var c0 = $("<div id='choice0'>choice0</div>");
+                var c0 = $("<div id='choice0' class='btn'>choice0</div>");
                 $("#anchor").append(c0);
-                var c1 = $("<div id='choice1'>choice1</div>");
+                var c1 = $("<div id='choice1' class='btn'>choice1</div>");
                 $("#anchor").append(c1);
-                var c2 = $("<div id='choice2'>choice2</div>");
+                var c2 = $("<div id='choice2' class='btn'>choice2</div>");
                 $("#anchor").append(c2);
-                var c3 = $("<div id='choice3'>choice3</div>");
+                var c3 = $("<div id='choice3' class='btn'>choice3</div>");
                 $("#anchor").append(c3);
                 got.game();
-                this.buttonsExist = 1;
-            }
+            //     this.buttonsExist = 1;
+            // }
         },
 
         game: function () {
-            console.log("index " + this.i);
+            console.log("index " + got.i);
             $("#question").html(this.questions[this.i].q);
             $("#choice0").html(this.questions[this.i].c[0]);
             $("#choice1").html(this.questions[this.i].c[1]);
@@ -160,8 +162,9 @@ $(document).ready(function () {
             $("#anchor").append(wrong);
             $("#wrong").html("Number Incorrect: " + this.numWrong);
             this.buttonsExist=0;
-            this.startup()
-            // setTimeout(this.startup, 5000);    ///index is being read before it resets at the start of the this.startup.
+            console.log(this.buttonsExist)
+            // this.startup()
+            setTimeout(this.startup, 5000);    ///index is being read before it resets at the start of the this.startup.
         }
 
     } ///end of got object
