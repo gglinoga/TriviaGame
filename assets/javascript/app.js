@@ -1,5 +1,6 @@
-$(document).ready(function() {
+$(document).ready(function () {
 	let got = {
+		allowClick: true,
 		numRight: 0,
 		numWrong: 0,
 		numUnA: 0,
@@ -39,7 +40,7 @@ $(document).ready(function() {
 			c: ["lose a hand", "prison", "exile", "death"],
 			a: 3
 		}, ],
-		startup: function() {
+		startup: function () {
 			let audio = new Audio('assets/sounds/click.mp3');
 			audio.play();
 			$("#restart").remove();
@@ -67,7 +68,7 @@ $(document).ready(function() {
 			//     this.buttonsExist = 1;
 			// }
 		},
-		game: function() {
+		game: function () {
 			$("#question").html(got.questions[got.i].q);
 			$("#choice0").html(got.questions[got.i].c[0]);
 			$("#choice1").html(got.questions[got.i].c[1]);
@@ -90,26 +91,26 @@ $(document).ready(function() {
 				}
 			}
 		},
-		clockreset: function() {
+		clockreset: function () {
 			time = 30;
 			$("#timer").html(time);
 		},
-		stop: function() {
+		stop: function () {
 			clearInterval(intervalId);
 			clockRunning = false;
 		},
-		correct: function() {
+		correct: function () {
 			let audio = new Audio('assets/sounds/win.mp3');
 			audio.play();
 			$("#question").html("Correct!");
 		},
-		incorrect: function() {
+		incorrect: function () {
 			let audio = new Audio('assets/sounds/buzzer.mp3');
 			audio.play();
 			var correctAnswer = this.questions[this.i].a;
 			$("#question").html("Incorrect!  The correct answer is: " + this.questions[this.i].c[correctAnswer])
 		},
-		button: function(z) {
+		button: function (z) {
 			this.currentA = z;
 			if (this.currentA === this.questions[this.i].a) {
 				got.correct();
@@ -128,7 +129,7 @@ $(document).ready(function() {
 				setTimeout(got.gameover, 5000);
 			}
 		},
-		timeover: function() {
+		timeover: function () {
 			this.numUnA++;
 			this.i++;
 			if (this.i < 8) {
@@ -137,7 +138,12 @@ $(document).ready(function() {
 				got.gameover();
 			}
 		},
-		gameover: function() {
+
+		clicker: function () {
+			got.allowClick = true;
+		},
+
+		gameover: function () {
 			let audio = new Audio('assets/sounds/win.mp3');
 			audio.play();
 			$("#question").remove();
@@ -160,22 +166,42 @@ $(document).ready(function() {
 			// setTimeout(this.startup, 5000);    ///index is being read before it resets at the start of the this.startup.
 		}
 	} ///end of got object
-	$("#startbutton").on("click", function() {
+	$("#startbutton").on("click", function () {
 		got.startup();
 	})
-	$("body").on("click", "div#choice0", function() {
-		got.button(0);
+	$("body").on("click", "div#choice0", function () {
+		if (got.allowClick === true) {
+			got.allowClick = false
+			got.button(0);
+			setTimeout(got.clicker, 5000);
+			console.log(got.allowClick)
+		}
 	})
-	$("body").on("click", "div#choice1", function() {
-		got.button(1);
+	$("body").on("click", "div#choice1", function () {
+		if (got.allowClick === true) {
+			got.allowClick = false
+			got.button(0);
+			setTimeout(got.clicker, 5000);
+			console.log(got.allowClick)
+		}
 	})
-	$("body").on("click", "div#choice2", function() {
-		got.button(2);
+	$("body").on("click", "div#choice2", function () {
+		if (got.allowClick === true) {
+			got.allowClick = false
+			got.button(0);
+			setTimeout(got.clicker, 5000);
+			console.log(got.allowClick)
+		}
 	})
-	$("body").on("click", "div#choice3", function() {
-		got.button(3);
+	$("body").on("click", "div#choice3", function () {
+		if (got.allowClick === true) {
+			got.allowClick = false
+			got.button(0);
+			setTimeout(got.clicker, 5000);
+			console.log(got.allowClick)
+		}
 	})
-	$("body").on("click", "button#restart", function() {
+	$("body").on("click", "button#restart", function () {
 		got.startup();
 	})
 }) /////// ready wrapper
