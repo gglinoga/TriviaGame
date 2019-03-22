@@ -17,7 +17,7 @@ body {
 	color: gold;
 	margin: 0px 350px;
 	text-align: center;
-	background: white;
+	background: rgba(128, 0, 0, .7);
 	width: 400px;
 }
 .jumbotron {
@@ -25,7 +25,7 @@ body {
 	font-weight: bold;
 }
 #question {
-	background-color: black;
+	background: rgba(0, 0, 0, .7);
 	color: white;
 }
 #right, #wrong, #noA {
