@@ -1,6 +1,8 @@
 body {
 	font-family: Julius Sans One;
 	background-image: url(../images/bg2.jpg!d);
+	background-repeat: no-repeat;
+	background-size: 100%;
 	font-size: xx-large;
 }
 .display-1 {

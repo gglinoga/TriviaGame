@@ -43,6 +43,8 @@ $(document).ready(function () {
 		startup: function () {
 			let audio = new Audio('assets/sounds/click.mp3');
 			audio.play();
+			let audio2 = new Audio('assets/sounds/got.mp3');
+			audio2.play();
 			$("#restart").remove();
 			$("#right").remove();
 			$("#wrong").remove();
@@ -159,7 +161,7 @@ $(document).ready(function () {
 			$("#wrong").html("Number Incorrect: " + got.numWrong);
 			var noA = $("<div id='noA' class='card-body'></div>");
 			$("#anchor").append(noA);
-			$("#noA").html("Number Incorrect: " + got.numUnA);
+			$("#noA").html("Number Unanswered: " + got.numUnA);
 			var restart = $("<button id='restart'class='btn'>Restart</button>")
 			$("#anchor").append(restart);
 			// this.startup()
