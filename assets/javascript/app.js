@@ -176,7 +176,6 @@ $(document).ready(function () {
 			got.allowClick = false
 			got.button(0);
 			setTimeout(got.clicker, 5000);
-			console.log(got.allowClick)
 		}
 	})
 	$("body").on("click", "div#choice1", function () {
@@ -184,7 +183,6 @@ $(document).ready(function () {
 			got.allowClick = false
 			got.button(1);
 			setTimeout(got.clicker, 5000);
-			console.log(got.allowClick)
 		}
 	})
 	$("body").on("click", "div#choice2", function () {
@@ -192,7 +190,6 @@ $(document).ready(function () {
 			got.allowClick = false
 			got.button(2);
 			setTimeout(got.clicker, 5000);
-			console.log(got.allowClick)
 		}
 	})
 	$("body").on("click", "div#choice3", function () {
@@ -200,7 +197,6 @@ $(document).ready(function () {
 			got.allowClick = false
 			got.button(3);
 			setTimeout(got.clicker, 5000);
-			console.log(got.allowClick)
 		}
 	})
 	$("body").on("click", "button#restart", function () {
